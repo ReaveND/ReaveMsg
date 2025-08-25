@@ -1,6 +1,7 @@
 {
   "name": "ReaveMsg",
   "version": "1.0.0",
+  "main": "index.js",
   "private": true,
   "description": "A bot to send Issue and PR open and closed messages.",
   "author": "ReaveND",
