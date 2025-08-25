@@ -1,0 +1,19 @@
+{
+  "action": "opened",
+  "pull_request": {
+    "number": 42,
+    "user": {
+      "login": "ReaveND"
+    },
+    "merged": false
+  },
+  "repository": {
+    "name": "REPO_NAME",
+    "owner": {
+      "login": "ReaveND"
+    }
+  },
+  "installation": {
+    "id": 123456
+  }
+}
