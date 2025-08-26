@@ -1,13 +1,14 @@
 export default (app) => {
   app.log.info("🚀 ReaveMsg is live and ready to handle events!");
+
+  // ✅ Register /ping route globally
+  app.get('/ping', async (req, res) => {
+    res.send('✅ Ping received');
+  });
+  
   // 🔔 Pull Request Opened
   app.on('pull_request.opened', async (context) => {
   context.log.info("✅ pull_request.opened event received");
-
-  app.get('/ping', async (req, res) => {
-  res.send('✅ Ping received');
-  });
-
 
   const pr = context.payload.pull_request;
   const repo = context.payload.repository;
