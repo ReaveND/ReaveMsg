@@ -2,7 +2,7 @@ export default (app) => {
   app.log.info("🚀 ReaveMsg is live and ready to handle events!");
 
   // ✅ Register /ping route globally
-  app.get('/ping', async (req, res) => {
+  app.router.get('/ping', async (req, res) => {
     res.send('✅ Ping received');
   });
   
