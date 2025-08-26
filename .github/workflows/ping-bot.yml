@@ -14,6 +14,3 @@ jobs:
             -H "Content-Type: application/json" \
             -d '{"ping": true}'
             
-      - name: Ping Probot /events route
-        run: |
-          curl -X GET https://reavemsg.onrender.com/events
