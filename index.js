@@ -1,6 +1,14 @@
 export default (app) => {
   app.log.info("🚀 ReaveMsg is live and ready to handle events!");
 
+  app.onAny(async (context) => {
+  if (context.payload.ping) {
+    context.log.info(`✅ Ping received at ${new Date().toISOString()}`);
+    // Optional: post a comment to a test issue or log bot status
+  }
+});
+
+
   // 🔔 Pull Request Opened
   app.on('pull_request.opened', async (context) => {
   context.log.info("✅ pull_request.opened event received");
