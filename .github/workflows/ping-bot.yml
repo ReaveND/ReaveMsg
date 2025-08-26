@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Send ping to bot
         run: |
-          curl -X POST https://reavemsg.onrender.com//api/github/webhooks \
+          curl -X POST https://reavemsg.onrender.com/api/github/webhooks \
             -H "Content-Type: application/json" \
             -d '{"ping": true}'
             
