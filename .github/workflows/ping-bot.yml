@@ -1,0 +1,17 @@
+name: Ping Render Bot Every 30 Minutes
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'  # Every 30 minutes
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping custom /ping route
+        run: |
+          curl -X GET https://reavemsg.onrender.com/ping
+
+      - name: Ping Probot /events route
+        run: |
+          curl -X GET https://reavemsg.onrender.com/events
