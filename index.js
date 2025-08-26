@@ -4,6 +4,11 @@ export default (app) => {
   app.on('pull_request.opened', async (context) => {
   context.log.info("✅ pull_request.opened event received");
 
+  app.get('/ping', async (req, res) => {
+  res.send('✅ Ping received');
+  });
+
+
   const pr = context.payload.pull_request;
   const repo = context.payload.repository;
 
