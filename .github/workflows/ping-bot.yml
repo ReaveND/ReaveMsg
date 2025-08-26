@@ -8,10 +8,12 @@ jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping custom /ping route
+      - name: Send ping to bot
         run: |
-          curl -X GET https://reavemsg.onrender.com/ping
-
+          curl -X POST https://reavemsg.onrender.com//api/github/webhooks \
+            -H "Content-Type: application/json" \
+            -d '{"ping": true}'
+            
       - name: Ping Probot /events route
         run: |
           curl -X GET https://reavemsg.onrender.com/events
