@@ -1,12 +1,6 @@
 export default (app) => {
   app.log.info("🚀 ReaveMsg is live and ready to handle events!");
 
-  // ✅ Use getRouter to safely register route
-  const router = app.getRouter('/');
-  router.get('/ping', async (req, res) => {
-    res.send('✅ Ping received via getRouter');
-  });
-  
   // 🔔 Pull Request Opened
   app.on('pull_request.opened', async (context) => {
   context.log.info("✅ pull_request.opened event received");
