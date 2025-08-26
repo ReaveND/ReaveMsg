@@ -2,7 +2,7 @@ name: Ping Render Bot Every 30 Minutes
 
 on:
   schedule:
-    - cron: '*/30 * * * *'  # Every 30 minutes
+    - cron: '*/20 * * * *'  # Every 30 minutes
 
 jobs:
   ping:
