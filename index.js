@@ -52,28 +52,28 @@ export default (app) => {
 
   // Pull Request Approved!
   app.on('pull_request_review.submitted', async (context) => {
-  const review = context.payload.review;
-  const pr = context.payload.pull_request;
-  const repo = context.payload.repository;
-
-  const reviewer = review.user.login;
-  const reviewState = review.state; // "approved", "changes_requested", or "commented"
-
-  const message = reviewState === "approved"
-    ? `✅ @${reviewer} has approved PR #${pr.number}. Great job!`
-    : reviewState === "changes_requested"
-    ? `⚠️ @${reviewer} requested changes on PR #${pr.number}. Please review their feedback.`
-    : `💬 @${reviewer} left comments on PR #${pr.number}.`;
-
-  await context.octokit.issues.createComment({
-    owner: repo.owner.login,
-    repo: repo.name,
-    issue_number: pr.number,
-    body: message,
+    const review = context.payload.review;
+    const pr = context.payload.pull_request;
+    const repo = context.payload.repository;
+  
+    const reviewer = review.user.login;
+    const reviewState = review.state; // "approved", "changes_requested", or "commented"
+  
+    const message = reviewState === "approved"
+      ? `✅ @${reviewer} has approved PR #${pr.number}. Great job!`
+      : reviewState === "changes_requested"
+      ? `⚠️ @${reviewer} requested changes on PR #${pr.number}. Please review their feedback.`
+      : `💬 @${reviewer} left comments on PR #${pr.number}.`;
+  
+    await context.octokit.issues.createComment({
+      owner: repo.owner.login,
+      repo: repo.name,
+      issue_number: pr.number,
+      body: message,
+    });
+  
+    context.log.info(`📣 Review message posted for PR #${pr.number}`);
   });
-
-  context.log.info(`📣 Review message posted for PR #${pr.number}`);
-});
 
 
   // 📝 Issue Opened
